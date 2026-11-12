@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça espécies da fauna brasileira e filtre por classe, alimentação e bioma.">
+  <title>Animais | WebZoo</title>
+  <link rel="icon" type="image/png" href="assets/favicon/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/menu.js" defer></script>
+  <script src="js/animais.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WebZoo - página inicial">
+        <img src="assets/logo/webzoo_logo.png" alt="Logotipo WebZoo">
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="menu-principal"
+              aria-expanded="false" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" >Início</a></li>
+          <li><a href="animais.html" aria-current="page">Animais</a></li>
+          <li><a href="visite.html" >Visite</a></li>
+          <li><a href="participe.html" >Participe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<main id="conteudo">
+
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Conheça a fauna</p>
+        <h1>Animais do WebZoo</h1>
+        <p>O Brasil reúne uma enorme diversidade de animais. Conheça algumas espécies marcantes e use os filtros para encontrar informações por classe, alimentação ou bioma.</p>
+      </div>
+    </section>
+    <section class="section container">
+      <div class="filter-panel" aria-label="Filtros de animais">
+        <div class="filter-field"><label for="filtro-classe">Classe</label><select id="filtro-classe"><option value="todos">Todas</option><option value="mamifero">Mamíferos</option><option value="ave">Aves</option></select></div>
+        <div class="filter-field"><label for="filtro-alimentacao">Alimentação</label><select id="filtro-alimentacao"><option value="todos">Todas</option><option value="carnivoro">Carnívoro</option><option value="herbivoro">Herbívoro</option><option value="onivoro">Onívoro</option><option value="insetivoro">Insetívoro</option></select></div>
+        <div class="filter-field"><label for="filtro-bioma">Bioma</label><select id="filtro-bioma"><option value="todos">Todos</option><option value="amazonia">Amazônia</option><option value="cerrado">Cerrado</option><option value="pantanal">Pantanal</option><option value="mata-atlantica">Mata Atlântica</option><option value="caatinga">Caatinga</option></select></div>
+        <button class="button button-outline" id="limpar-filtros" type="button">Limpar filtros</button>
+      </div>
+      <p class="results-count" id="contador-animais" aria-live="polite">3 animais encontrados.</p>
+      <div class="animal-grid" id="lista-animais">
+        <article class="animal-card" data-classe="mamifero" data-alimentacao="carnivoro" data-biomas="amazonia pantanal cerrado mata-atlantica caatinga">
+          <img src="assets/imagens/onca_pintada.png" alt="Onça-pintada em pé na margem de um rio, cercada por vegetação" loading="lazy">
+          <div class="animal-content"><span class="tag">Mamífero</span><h2>Onça-pintada</h2><p class="scientific">Panthera onca</p><p>Felino de pelagem marcada por manchas. É carnívora e pode ser encontrada em florestas e áreas do Pantanal.</p><dl class="animal-data"><div><dt>Alimentação</dt><dd>Carnívoro</dd></div><div><dt>Conservação</dt><dd>Quase ameaçada</dd></div></dl><p class="biome-line">Biomas: Amazônia, Pantanal, Cerrado, Mata Atlântica e Caatinga.</p></div>
+        </article>
+        <article class="animal-card" data-classe="ave" data-alimentacao="onivoro" data-biomas="cerrado pantanal mata-atlantica">
+          <img src="assets/imagens/tucano_toco.png" alt="Tucano-toco de plumagem preta e bico alaranjado pousado em um galho" loading="lazy">
+          <div class="animal-content"><span class="tag">Ave</span><h2>Tucano-toco</h2><p class="scientific">Ramphastos toco</p><p>Ave conhecida pelo bico grande e colorido. Alimenta-se de frutos e também de pequenos animais.</p><dl class="animal-data"><div><dt>Alimentação</dt><dd>Onívoro</dd></div><div><dt>Conservação</dt><dd>Pouco preocupante</dd></div></dl><p class="biome-line">Biomas: Cerrado, Pantanal e bordas de matas.</p></div>
+        </article>
+        <article class="animal-card" data-classe="mamifero" data-alimentacao="herbivoro" data-biomas="amazonia cerrado pantanal mata-atlantica caatinga">
+          <img src="assets/imagens/capivara.png" alt="Capivara sentada na grama próxima à margem de um lago" loading="lazy">
+          <div class="animal-content"><span class="tag">Mamífero</span><h2>Capivara</h2><p class="scientific">Hydrochoerus hydrochaeris</p><p>Maior roedor do mundo, vive em grupos e costuma permanecer perto de rios e lagos.</p><dl class="animal-data"><div><dt>Alimentação</dt><dd>Herbívoro</dd></div><div><dt>Conservação</dt><dd>Pouco preocupante</dd></div></dl><p class="biome-line">Biomas: presente em quase todo o Brasil, sempre perto da água.</p></div>
+        </article>
+      </div>
+      <p class="empty-state" id="sem-resultados" hidden>Nenhum animal encontrado com esses filtros.</p>
+    </section>
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Entenda a classificação</p><h2>Estado de conservação</h2></div>
+        <div class="status-grid">
+          <article><h3>Pouco preocupante</h3><p>A espécie não corre risco imediato.</p></article>
+          <article><h3>Quase ameaçada</h3><p>Pode se tornar ameaçada em um futuro próximo.</p></article>
+          <article><h3>Vulnerável</h3><p>Enfrenta risco alto de extinção na natureza.</p></article>
+          <article><h3>Em perigo</h3><p>Enfrenta risco muito alto de extinção na natureza.</p></article>
+        </div>
+        <p class="small-note">As classificações apresentadas são as informadas no material didático de apoio.</p>
+      </div>
+    </section>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <a class="footer-brand" href="index.html">WebZoo</a>
+        <p>Conhecer para preservar.</p>
+        <p>Projeto acadêmico e fictício, sem fins comerciais.</p>
+        <p>Desenvolvido por: Rafael</p>
+        <p>Instituição: SENAI Comendador Santoro Mirone</p>
+      </section>
+      <section>
+        <h2>Endereço de referência</h2>
+        <address>
+          Zoológico de São Paulo<br>
+          Av. Miguel Estéfano, 4241 - Água Funda<br>
+          São Paulo - SP<br>
+          CEP 04301-905<br>
+          Telefone fictício: (11) 5555-0142<br>
+          <a href="mailto:contato@webzoo.example">contato@webzoo.example</a>
+        </address>
+      </section>
+      <section>
+        <h2>Créditos</h2>
+        <p>Imagens ilustrativas criadas por IA para a atividade.</p>
+        <p>CEP: <a href="https://viacep.com.br/" target="_blank" rel="noopener noreferrer">ViaCEP</a>.</p>
+        <p>Clima: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>.</p>
+      </section>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="ano-atual">2026</span> WebZoo — Projeto educacional.</p>
+      <a href="#topo" class="back-top">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
