@@ -1,104 +1,80 @@
-# WebZoo — Projeto Front-End
+# DOCUMENTAÇÃO DO PROJETO WEBZOO
 
-Projeto acadêmico fictício de educação ambiental, desenvolvido com HTML5, CSS3 e JavaScript puro para a atividade prática de Front-End do SENAI Comendador Santoro Mirone.
+**Desenvolvedor:** Rafael  
+**Turma:** [Preencher turma]  
+**Instituição:** SENAI Comendador Santoro Mirone
 
-## Objetivo
+## 1. Link do site publicado
 
-Apresentar informações educativas sobre animais da fauna brasileira, orientar o visitante e demonstrar integrações com APIs públicas.
+O projeto WebZoo está hospedado gratuitamente por meio do GitHub Pages.
 
-## Tecnologias
+**Endereço:** https://rafaelsenai07.github.io/Web-Zoo/
 
-- HTML5 semântico
-- CSS3 (Flexbox, Grid e Media Queries)
-- JavaScript puro (DOM, Fetch API, async/await)
-- ViaCEP para consulta de CEP
-- Open-Meteo para informações meteorológicas
+## 2. Lista de páginas desenvolvidas
 
-## Estrutura
+O site é composto por quatro páginas principais, que possuem um menu de navegação compartilhado.
 
-```text
-WebZoo_Rafael/
-├── index.html
-├── animais.html
-├── visite.html
-├── participe.html
-├── css/
-│   └── style.css
-├── js/
-│   ├── menu.js
-│   ├── animais.js
-│   ├── formulario.js
-│   ├── cep.js
-│   └── clima.js
-└── assets/
-    ├── imagens/
-    ├── logo/
-    └── favicon/
-```
+| Página | Arquivo | Descrição |
+|---|---|---|
+| Início | index.html | Apresentação do WebZoo, objetivos do projeto e curiosidades sobre os animais. |
+| Animais | animais.html | Apresentação de espécies da fauna brasileira, com informações sobre alimentação, habitat e conservação. |
+| Visite | visite.html | Informações sobre horários, ingressos, localização, previsão do tempo e orientações para visitação. |
+| Participe | participe.html | Apresentação de programas de educação ambiental e formulário demonstrativo de cadastro. |
 
-## Páginas
+## 3. APIs utilizadas
 
-- **Início (`index.html`)**: apresentação, missão, valores e curiosidades.
-- **Animais (`animais.html`)**: fichas da onça-pintada, tucano-toco e capivara, com filtros por classe, alimentação e bioma.
-- **Visite (`visite.html`)**: horários e preços fictícios, endereço, consulta de CEP, previsão do tempo, dicas, regras, acessibilidade e perguntas frequentes.
-- **Participe (`participe.html`)**: programas fictícios de educação ambiental, formulário demonstrativo e atitudes de preservação.
+Foram utilizadas duas APIs externas para disponibilizar funcionalidades dinâmicas no site.
 
-## APIs utilizadas
+### 3.1 ViaCEP
 
-### ViaCEP
+**Endereço consultado:** https://viacep.com.br/ws/{CEP}/json/
 
-- Site: https://viacep.com.br/
-- Endpoint: `https://viacep.com.br/ws/{cep}/json/`
-- Utilização: `visite.html` e `participe.html`.
-- No formulário de participação, os campos de rua, bairro, cidade e estado são preenchidos pela consulta.
+**Páginas em que aparece:**
+- Visite: permite consultar um CEP e obter informações de endereço.
+- Participe: permite buscar o CEP para preencher automaticamente os campos de endereço do formulário.
 
-### Open-Meteo
+**Finalidade:** Facilitar a consulta de endereços por meio do Código de Endereçamento Postal (CEP), retornando informações como rua, bairro, cidade e estado.
 
-- Site: https://open-meteo.com/
-- Endpoint base: `https://api.open-meteo.com/v1/forecast`
-- Utilização: `visite.html`.
-- Coordenadas aproximadas utilizadas: latitude `-23.65`, longitude `-46.62`.
-- Campos consultados: temperatura atual, código do tempo, máxima, mínima e probabilidade máxima de precipitação diária.
-- Fuso horário: `America/Sao_Paulo`.
+### 3.2 Open-Meteo
 
-As integrações usam `fetch`, `async/await`, `try/catch`, verificação de `response.ok` e mensagens de carregamento/erro.
+**Endereço consultado:** https://api.open-meteo.com/v1/forecast
 
-## Interações
+**Página em que aparece:**
+- Visite: apresenta informações meteorológicas da região do zoológico.
 
-- Menu responsivo com botão hambúrguer, atributos ARIA e fechamento por tecla Esc.
-- Filtros combináveis na página Animais.
-- Consulta de CEP pelo ViaCEP.
-- Consulta do clima pela Open-Meteo.
-- Validação do formulário demonstrativo.
-- Perguntas frequentes expansíveis com `details` e `summary`.
+**Finalidade:** Consultar informações meteorológicas, como temperatura atual, temperaturas máxima e mínima e possibilidade de chuva, permitindo que o visitante consulte as condições do tempo antes de planejar o passeio.
 
-## Como executar no VS Code
+A API utiliza parâmetros de localização e previsão para retornar os dados meteorológicos.
 
-1. Extraia a pasta `WebZoo_Rafael`.
-2. Abra o VS Code.
-3. Selecione **Arquivo > Abrir Pasta** e escolha `WebZoo_Rafael`.
-4. Instale a extensão **Live Server**, caso ainda não esteja instalada.
-5. Clique com o botão direito em `index.html`.
-6. Escolha **Open with Live Server**.
+## 4. Interações implementadas
 
-As APIs dependem de conexão com a internet. Abra o projeto pelo Live Server para evitar limitações de execução local.
+O WebZoo possui diferentes interações para facilitar a navegação e melhorar a experiência dos visitantes.
 
-## Publicação no GitHub Pages
+- **Menu de navegação:** permite acessar as quatro páginas do site, com adaptação para dispositivos móveis.
+- **Filtros de animais:** permitem filtrar as espécies por classe, alimentação e bioma, além de disponibilizar uma opção para limpar os filtros.
+- **Consulta de CEP:** permite pesquisar um endereço utilizando a API ViaCEP.
+- **Previsão do tempo:** apresenta informações meteorológicas por meio da API Open-Meteo, com opção para atualizar a consulta.
+- **Formulário de participação:** permite preencher informações demonstrativas, selecionar assuntos, escolher um animal favorito e enviar o cadastro.
+- **Preenchimento de endereço:** utiliza a consulta de CEP para auxiliar no preenchimento dos campos de endereço.
+- **Perguntas frequentes:** apresenta respostas para dúvidas comuns sobre a visitação.
+- **Navegação entre páginas:** botões e links direcionam o visitante para diferentes áreas do site.
 
-1. Crie um repositório no GitHub.
-2. Envie todos os arquivos e pastas do projeto para a raiz do repositório.
-3. Abra **Settings > Pages**.
-4. Em **Build and deployment**, selecione a publicação a partir de uma branch.
-5. Escolha a branch principal e a pasta `/ (root)`.
-6. Salve e aguarde a publicação.
-7. O GitHub exibirá o endereço do site quando a publicação estiver concluída.
+**Observação:** O formulário é demonstrativo. Os dados não são enviados ou armazenados em um banco de dados.
 
-Nenhum endereço de publicação foi criado ou presumido neste projeto.
+## 5. Ferramentas de Inteligência Artificial utilizadas
 
-## Observações
+Durante o desenvolvimento do projeto, foram utilizadas ferramentas de inteligência artificial como apoio à construção e organização do site.
 
-- O WebZoo é fictício e foi desenvolvido para fins didáticos.
-- Horários, ingressos, telefone, e-mail e programas são demonstrativos.
-- Não informe dados pessoais reais no formulário. Ele não envia nem armazena informações.
-- As imagens dos animais e da floresta foram fornecidas nos materiais da atividade e copiadas sem distorção.
-- A classificação de conservação e os textos educativos seguem o arquivo de apoio da atividade.
+- **ChatGPT (OpenAI):** utilizado como apoio na elaboração de instruções, organização da estrutura do projeto, desenvolvimento e revisão de códigos e documentação.
+- **Claude (Anthropic):** utilizado como apoio na elaboração e desenvolvimento da estrutura do site por meio de instruções em linguagem natural.
+- **Geração de imagens por IA:** utilizada para produzir imagens ilustrativas dos animais e elementos visuais do projeto.
+
+## 6. Considerações finais
+
+O WebZoo foi desenvolvido com o objetivo de apresentar informações sobre a fauna brasileira e incentivar a educação ambiental por meio de uma plataforma digital.
+
+O projeto reúne diferentes páginas, recursos de navegação, filtros de pesquisa, formulários e integração com APIs externas, proporcionando uma experiência interativa e informativa aos visitantes.
+
+A utilização de HTML, CSS e JavaScript, juntamente com serviços externos, permitiu desenvolver um site organizado, responsivo e com funcionalidades que auxiliam o usuário no acesso às informações.
+
+O projeto possui finalidade acadêmica e educativa, sem fins comerciais.
